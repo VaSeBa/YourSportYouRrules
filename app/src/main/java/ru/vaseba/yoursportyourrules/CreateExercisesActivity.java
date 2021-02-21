@@ -11,9 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.snackbar.Snackbar;
 import ru.vaseba.yoursportyourrules.datebase.DatabaseHelper;
+import ru.vaseba.yoursportyourrules.myex.MyExes;
 
 
 public class CreateExercisesActivity extends AppCompatActivity {
+    private MyExes mMyExes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

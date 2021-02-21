@@ -21,7 +21,7 @@ public class WODFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        RecyclerView pizzaRecycler = (RecyclerView) inflater.inflate(
+        RecyclerView wodRecycler = (RecyclerView) inflater.inflate(
                 R.layout.fragmen_wod, container, false);
 
         String[] wodNames = new String[WOD.wods.length];
@@ -43,9 +43,9 @@ public class WODFragment extends Fragment {
         }
 
         CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(wodNames, wodImages);
-        pizzaRecycler.setAdapter(adapter);
+        wodRecycler.setAdapter(adapter);
         GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 3);
-        pizzaRecycler.setLayoutManager(layoutManager);
+        wodRecycler.setLayoutManager(layoutManager);
 
         adapter.setListener(new CaptionedImagesAdapter.Listener() {
             @Override
@@ -56,7 +56,7 @@ public class WODFragment extends Fragment {
             }
         });
 
-        return pizzaRecycler;
+        return wodRecycler;
     }
 
 }

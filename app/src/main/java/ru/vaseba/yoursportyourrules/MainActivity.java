@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);

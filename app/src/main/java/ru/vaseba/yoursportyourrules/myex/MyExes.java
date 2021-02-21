@@ -9,7 +9,7 @@ public class MyExes {
     private UUID mId;
     private int img;
 
-    public MyExes(UUID id) {
+    public MyExes() {
         mId = UUID.randomUUID();
     }
 

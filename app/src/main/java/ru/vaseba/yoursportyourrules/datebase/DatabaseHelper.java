@@ -20,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_EXERCISE + "(" + KEY_ID
+        db.execSQL("CREATE TABLE " + TABLE_EXERCISE + "(" + KEY_ID
                 + " integer primary key," + KEY_NAME + " text," + KEY_DETAIL + " text"
                 + ")");
     }

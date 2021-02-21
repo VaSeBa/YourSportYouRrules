@@ -1,4 +1,4 @@
-package ru.vaseba.criminalintent;
+package ru.vaseba.yoursportyourrules.myex;
 
 import android.content.Context;
 
@@ -6,36 +6,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class CrimeLab {
+public class ExesLab {
 
-    private static CrimeLab sCrimeLab;
-    private List<Crime> mCrimes;
+    private static ExesLab sExesLab;
+    private List<MyExes> mExes;
 
-    public static CrimeLab get(Context context) {
-        if (sCrimeLab == null) {
-            sCrimeLab = new CrimeLab(context);
+    public static ExesLab get(Context context) {
+        if (sExesLab == null) {
+            sExesLab = new ExesLab(context);
         }
-        return sCrimeLab;
+        return sExesLab;
     }
 
-    private CrimeLab(Context context) {
-        mCrimes = new ArrayList<>();
+    private ExesLab(Context context) {
+        mExes = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            Crime crime = new Crime();
-            crime.setTitle("Crime #" + i);
-            crime.setSolved(i % 2 == 0); // Для каждого второго объекта
-            mCrimes.add(crime);
+            MyExes exes = new MyExes();
+            exes.setName("Комплекс #" + i);
+            mExes.add(exes);
         }
     }
 
-    public List<Crime> getCrimes() {
-        return mCrimes;
+    public List<MyExes> getExes() {
+        return mExes;
     }
 
-    public Crime getCrime(UUID id) {
-        for (Crime crime : mCrimes) {
-            if (crime.getId().equals(id)) {
-                return crime;
+    public MyExes getExe(UUID id) {
+        for (MyExes exes : mExes) {
+            if (exes.getId().equals(id)) {
+                return exes;
             }
         }
         return null;
