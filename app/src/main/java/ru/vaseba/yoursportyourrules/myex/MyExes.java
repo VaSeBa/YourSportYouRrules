@@ -4,13 +4,17 @@ import java.util.Random;
 import java.util.UUID;
 
 public class MyExes {
+    private UUID mId;
     private String name;
     private String detail;
-    private UUID mId;
     private int img;
 
     public MyExes() {
         mId = UUID.randomUUID();
+    }
+
+    public MyExes(UUID id) {
+        mId = id;
     }
 
     public String getName() {

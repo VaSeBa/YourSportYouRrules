@@ -32,7 +32,8 @@ public class MyExesDetailActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-//        int wodId = (Integer)getIntent().getExtras().get(EXTRA_EXES_ID);
+//        int exesId = (Integer)getIntent().getExtras().get(EXTRA_EXES_ID);
+
 //        String exesName = WOD.wods[wodId].getName();
 //        String exesDetail = WOD.wods[wodId].getDetail();
 //

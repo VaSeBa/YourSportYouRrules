@@ -3,6 +3,7 @@ package ru.vaseba.yoursportyourrules.myex;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,7 +19,9 @@ import ru.vaseba.yoursportyourrules.R;
 
 public class MyExesFragment extends Fragment {
     private RecyclerView mExesRecyclerView;
-    private CrimeAdapter mAdapter;
+    private ExesAdapter mAdapter;
+    private boolean mSubtitleVisible;
+    private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
 
     private class ExesHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -30,7 +32,7 @@ public class MyExesFragment extends Fragment {
             super(inflater.inflate(R.layout.list_item_exes, parent, false));
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (TextView) itemView.findViewById(R.id.exes_text);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.ex_title);
         }
 
         @Override
@@ -48,11 +50,11 @@ public class MyExesFragment extends Fragment {
 
     }
 
-    private class CrimeAdapter extends RecyclerView.Adapter<ExesHolder> {
+    private class ExesAdapter extends RecyclerView.Adapter<ExesHolder> {
 
         private List<MyExes> mMyExes;
 
-        public CrimeAdapter(List<MyExes> exes) {
+        public ExesAdapter(List<MyExes> exes) {
             mMyExes = exes;
         }
 
@@ -65,7 +67,7 @@ public class MyExesFragment extends Fragment {
         @Override
         public void onBindViewHolder(ExesHolder holder, int position) {
             MyExes exes = mMyExes.get(position);
-//            holder.bind(exes);
+            holder.bind(exes);
         }
 
         @Override
@@ -77,9 +79,8 @@ public class MyExesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_my_exes, container,false);
 
-        View view = inflater.inflate(R.layout.fragment_my_exes, container,
-                false);
         mExesRecyclerView = (RecyclerView) view.findViewById(R.id.exes_recycler);
         mExesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -88,11 +89,41 @@ public class MyExesFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(SAVED_SUBTITLE_VISIBLE, mSubtitleVisible);
+    }
+
+    private void updateSubtitle() {
+        ExesLab exesLab = ExesLab.get(getActivity());
+        int exesCount = exesLab.getExes().size();
+        String subtitle = getString(R.string.subtitle_format, exesCount);
+
+        if (!mSubtitleVisible) {
+            subtitle = null;
+        }
+
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        activity.getSupportActionBar().setSubtitle(subtitle);
+    }
+
     private void updateUI() {
         ExesLab exesLab = ExesLab.get(getActivity());
-        List<MyExes> crimes = exesLab.getExes();
-        mAdapter = new CrimeAdapter(crimes);
-        mExesRecyclerView.setAdapter(mAdapter);
+        List<MyExes> exes = exesLab.getExes();
+        if (mAdapter == null) {
+            mAdapter = new ExesAdapter(exes);
+            mExesRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.notifyDataSetChanged();
+        }
+        updateSubtitle();
     }
 
 }
