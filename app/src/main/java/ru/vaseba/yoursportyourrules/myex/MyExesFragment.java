@@ -53,7 +53,6 @@ public class MyExesFragment extends Fragment {
             }
         });
 
-
         return exesRecycler;
     }
 }
