@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
+import ru.vaseba.yoursportyourrules.myex.MyExesDetailActivity;
 import ru.vaseba.yoursportyourrules.myex.MyExesFragment;
 import ru.vaseba.yoursportyourrules.statistics.StatisticsFragment;
 import ru.vaseba.yoursportyourrules.wod.WODFragment;
@@ -41,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(pager);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
     }
 
     public void onClickDone(View view) {
-        Intent intent = new Intent(this, CreateExercisesActivity.class);
-        startActivity(intent);
+        MyExesDetailActivity.start(MainActivity.this, null);
     }
 
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
