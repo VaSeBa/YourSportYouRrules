@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 4;
+            return 3;
         }
 
         @Override
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     return new MyExesFragment();
                 case 2:
                     return new WODFragment();
-                case 3:
-                    return new StatisticsFragment();
+//                case 3:
+//                    return new StatisticsFragment();
             }
             return null;
         }
@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
                     return getResources().getText(R.string.my_ex);
                 case 2:
                     return getResources().getText(R.string.wod_ex);
-                case 3:
-                    return getResources().getText(R.string.stat);
+//                case 3:
+//                    return getResources().getText(R.string.stat);
             }
             return null;
         }

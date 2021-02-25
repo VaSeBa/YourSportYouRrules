@@ -32,8 +32,10 @@ public class CreateExercisesActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-       nameEdit = (EditText) findViewById(R.id.ex_name);
-       detailEdit = (EditText) findViewById(R.id.ex_details);
+       nameEdit = (EditText) findViewById(R.id.name);
+       detailEdit = (EditText) findViewById(R.id.detail);
+
+
 
     }
 

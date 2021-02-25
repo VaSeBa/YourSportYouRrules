@@ -16,6 +16,9 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
     private int seconds = 0;
     private boolean running;
     private boolean wasRunning;
+    private boolean wasSaving;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,12 +35,14 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_stopwatch, container, false);
         runTimer(layout);
+
         Button startButton = (Button)layout.findViewById(R.id.start_button);
         startButton.setOnClickListener(this);
         Button stopButton = (Button)layout.findViewById(R.id.stop_button);
         stopButton.setOnClickListener(this);
         Button resetButton = (Button)layout.findViewById(R.id.reset_button);
         resetButton.setOnClickListener(this);
+
         return layout;
     }
 
@@ -52,6 +57,9 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
                 break;
             case R.id.reset_button:
                 onClickReset();
+                break;
+            case R.id.time_view:
+                onTimeSave();
                 break;
         }
     }
@@ -71,12 +79,15 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
         }
     }
 
-
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt("seconds", seconds);
         savedInstanceState.putBoolean("running", running);
         savedInstanceState.putBoolean("wasRunning", wasRunning);
+    }
+
+    private void onTimeSave() {
+        wasSaving = true;
     }
 
     private void onClickStart() {
@@ -110,4 +121,6 @@ public class StopwatchFragment extends Fragment implements View.OnClickListener 
             }
         });
     }
+
+
 }

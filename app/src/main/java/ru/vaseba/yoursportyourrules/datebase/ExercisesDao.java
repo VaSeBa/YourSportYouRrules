@@ -14,6 +14,7 @@ import ru.vaseba.yoursportyourrules.myex.Exercises;
 
 @Dao
 public interface ExercisesDao {
+
     @Query("SELECT * FROM Exercises")
     List<Exercises> getAll();
 
@@ -34,4 +35,5 @@ public interface ExercisesDao {
 
     @Delete
     void delete(Exercises exercises);
+
 }

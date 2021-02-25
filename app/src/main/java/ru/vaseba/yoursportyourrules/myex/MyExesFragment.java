@@ -32,20 +32,19 @@ public class MyExesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        RecyclerView exesRecycler = (RecyclerView) inflater.inflate(
+        RecyclerView statsRecycler = (RecyclerView) inflater.inflate(
                 R.layout.fragment_my_exes, container, false);
 
 //        List <Exercises> exercisesList = App.getInstance().getExercisesDao();
         ExercisesAdapter adapter = new ExercisesAdapter();
-        exesRecycler.setAdapter(adapter);
+        statsRecycler.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
 
-        exesRecycler.setLayoutManager(layoutManager);
+        statsRecycler.setLayoutManager(layoutManager);
 
-        ExesViewModel viewModel = ViewModelProviders.of(this)
-                .get(ExesViewModel.class);
+        ExesViewModel viewModel = ViewModelProviders.of(this).get(ExesViewModel.class);
         viewModel.getExesLiveData().observe(this, new Observer<List<Exercises>>() {
             @Override
             public void onChanged(List<Exercises> exercises) {
@@ -53,6 +52,6 @@ public class MyExesFragment extends Fragment {
             }
         });
 
-        return exesRecycler;
+        return statsRecycler;
     }
 }
