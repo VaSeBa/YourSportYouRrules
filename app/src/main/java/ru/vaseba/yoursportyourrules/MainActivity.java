@@ -10,7 +10,9 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -21,8 +23,9 @@ import ru.vaseba.yoursportyourrules.statistics.StatisticsFragment;
 import ru.vaseba.yoursportyourrules.wod.WODFragment;
 
 public class MainActivity extends AppCompatActivity {
-    private FloatingActionButton actionButton;
-    private ShareActionProvider shareActionProvider;
+
+    private long backPressed;
+    private Toast makeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +46,16 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
     }
 
     public void onClickDone(View view) {
         MyExesDetailActivity.start(MainActivity.this, null);
     }
+
+
 
     private class SectionsPagerAdapter extends FragmentPagerAdapter {
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -88,6 +96,20 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+    }
+
+    //Закрытие приложения двойным нажатием
+    @Override
+    public void onBackPressed() {
+        if (backPressed + 2000 > System.currentTimeMillis()) {
+            makeText.cancel();
+            super.onBackPressed();
+            return;
+        } else {
+            makeText = Toast.makeText(getBaseContext(), "Нажмите дважды, что бы выйти", Toast.LENGTH_SHORT);
+            makeText.show();
+        }
+        backPressed = System.currentTimeMillis();
     }
 
 }

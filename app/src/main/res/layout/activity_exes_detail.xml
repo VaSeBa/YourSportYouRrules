@@ -1,32 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".myex.MyExesDetailActivity">
 
-    <include
-        layout="@layout/toolbar"
-        android:id="@+id/toolbar"/>
-
-    <TextView
-        android:id="@+id/exes_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/exes_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-    <FrameLayout
-        android:id="@+id/stopwatch_container"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="300dp"
+        android:theme="@style/Theme.AppCompat">
 
-</LinearLayout>
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="?attr/colorPrimary">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/kettlebell"
+                android:contentDescription="@string/image_ket"
+                app:layout_collapseMode="parallax"
+                />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding = "16dp"
+            >
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/order_name_hint"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/order_details_hint"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <FrameLayout
+                android:id="@+id/stopwatch_container"
+                android:layout_width="match_parent"
+                android:layout_height="328dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/history1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 1"/>
+
+                <EditText
+                    android:id="@+id/history2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 2"/>
+
+                <EditText
+                    android:id="@+id/history3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 3"/>
+
+                <EditText
+                    android:id="@+id/history4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 4"/>
+
+                <EditText
+                    android:id="@+id/history5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 5"/>
+
+                <EditText
+                    android:id="@+id/history6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 6"/>
+
+                <EditText
+                    android:id="@+id/history7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 7"/>
+
+                <EditText
+                    android:id="@+id/history8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 8"/>
+                <EditText
+                    android:id="@+id/history9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 9"/>
+                <EditText
+                    android:id="@+id/history10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 10"/>
+                <EditText
+                    android:id="@+id/history11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 11"/>
+                <EditText
+                    android:id="@+id/history12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 12"/>
+                <EditText
+                    android:id="@+id/history13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 13"/>
+                <EditText
+                    android:id="@+id/history14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 14"/>
+                <EditText
+                    android:id="@+id/history15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 15"/>
+                <EditText
+                    android:id="@+id/history16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 16"/>
+                <EditText
+                    android:id="@+id/history17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 17"/>
+                <EditText
+                    android:id="@+id/history18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 18"/>
+                <EditText
+                    android:id="@+id/history19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 19"/>
+
+                <EditText
+                    android:id="@+id/history20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 20"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

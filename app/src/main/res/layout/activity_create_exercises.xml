@@ -49,28 +49,64 @@
             >
 
             <EditText
-                android:id="@+id/ex_name"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/order_name_hint"/>
+                android:hint="@string/order_name_hint"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <EditText
-                android:id="@+id/ex_details"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/order_details_hint"/>
+                android:hint="@string/order_details_hint"
+                android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            <FrameLayout
+                android:id="@+id/stopwatch_container"
+                android:layout_width="match_parent"
+                android:layout_height="328dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 1"/>
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 2"/>
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 3"/>
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 4"/>
+
+                <EditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Результат 5"/>
+            </LinearLayout>
+
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/a_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="16dp"
-        android:src="@drawable/baseline_add_task_black_18dp"
-        android:onClick="onClickDone"
-        />
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
