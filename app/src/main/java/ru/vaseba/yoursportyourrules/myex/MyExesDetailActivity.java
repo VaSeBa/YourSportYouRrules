@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.EditText;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,6 +68,9 @@ public class MyExesDetailActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        //Реклама
+
 
         setTitle(getString(R.string.note_details_title));
         editText1 = findViewById(R.id.name);
@@ -183,7 +187,6 @@ public class MyExesDetailActivity extends AppCompatActivity {
                     }
                     finish();
                 }
-
                 break;
 
         }
