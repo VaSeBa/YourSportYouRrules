@@ -7,4 +7,6 @@
 
 так же есть примеры популярных комплексов упражнений WoD CrossFit 
 
-![](C:\Users\VaSeBa\Desktop\ru1024-500.png)
+![ru1024-500](https://user-images.githubusercontent.com/67800458/109387217-25c4ee00-7911-11eb-8d85-c80902ff7b5f.png)
+![ruScreen3](https://user-images.githubusercontent.com/67800458/109387225-2f4e5600-7911-11eb-9460-cada06712ab0.png)
+
